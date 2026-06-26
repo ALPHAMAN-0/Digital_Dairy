@@ -1,0 +1,22 @@
+{
+  "source": "AIUB - Operating Systems",
+  "date": "2026-06-25",
+  "learnings": [
+    {
+      "subject": "computer-science",
+      "title": "Process vs Thread",
+      "tags": ["operating-systems", "concurrency"],
+      "status": "growing",
+      "summary": "A process is an independent program with its own memory; threads are lightweight units that share their process's memory.",
+      "content": "## Key differences\n\n| | Process | Thread |\n|---|---|---|\n| Memory | Own address space | Shared within the process |\n| Creation cost | High | Low |\n| Crash impact | Isolated | Can take down the whole process |\n\n## Why it matters\nThreads make concurrency cheap because they share memory, but that sharing is exactly why you need synchronization (locks, mutexes) to avoid race conditions."
+    },
+    {
+      "subject": "programming",
+      "title": "Big-O Notation",
+      "tags": ["algorithms", "complexity"],
+      "status": "seedling",
+      "summary": "Big-O describes how an algorithm's running time grows as the input grows, ignoring constants.",
+      "content": "## Common classes (fast to slow)\n- O(1) — constant\n- O(log n) — logarithmic\n- O(n) — linear\n- O(n log n) — linearithmic\n- O(n^2) — quadratic"
+    }
+  ]
+}

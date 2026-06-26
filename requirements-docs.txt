@@ -1,0 +1,4 @@
+# Dependencies for building the website (used locally and by CI).
+# Install with:  python3 -m pip install -r requirements-docs.txt
+mkdocs-material>=9.6        # 9.6.0+ ships the tags index marker in the free edition
+mkdocs-roamlinks-plugin>=0.3.1

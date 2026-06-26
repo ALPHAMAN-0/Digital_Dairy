@@ -1,0 +1,35 @@
+# --- Operating system ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Obsidian (if this repo is opened as a vault) ---
+# Keep shared vault config, but ignore per-machine state.
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/appearance.json
+
+# --- Misc / temp ---
+*.tmp
+*.bak
+.trash/
+
+# --- Generated website (MkDocs) ---
+# NOTE: .gitignore does not support trailing comments — keep patterns on their own line.
+# built website output
+site/
+# temporary staging dir created by scripts/build_site.sh
+docs/
+.venv/
+venv/
+__pycache__/
+.cache/

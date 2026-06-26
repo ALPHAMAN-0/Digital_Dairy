@@ -1,0 +1,57 @@
+site_name: Digital Diary
+site_description: My personal learning journal — notes on computer science, programming, networking, and software development.
+# When you know your Pages URL, set it (helps search & sitemap), e.g.:
+# site_url: https://<your-github-username>.github.io/Digital_Dairy/
+
+# Content is staged here by scripts/build_site.sh (this folder is gitignored).
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  icon:
+    logo: material/notebook-edit-outline
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.sections
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - tags          # built-in Material tags index (requires mkdocs-material >= 9.6)
+  - roamlinks
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true

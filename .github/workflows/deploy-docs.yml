@@ -1,0 +1,63 @@
+name: Deploy Digital Diary to GitHub Pages
+
+# Builds the site with MkDocs Material and publishes it to GitHub Pages.
+#
+# One-time setup on GitHub (after you push this):
+#   Repo → Settings → Pages → Build and deployment → Source: "GitHub Actions"
+#
+# After that, every push to `main` rebuilds and redeploys the site automatically.
+# You can also trigger it manually from the Actions tab ("Run workflow").
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Permissions the deploy step needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so per-file "last updated" dates are accurate
+          # (a shallow clone collapses every file to the latest commit).
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements-docs.txt
+
+      - name: Stage content and build site
+        run: bash scripts/build_site.sh
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
