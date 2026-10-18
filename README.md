@@ -3,6 +3,18 @@
 A personal digital diary of my learning journey — notes, topics, concepts, and resources
 from **computer science, programming, networking, and software development**.
 
+## Architecture / How it Works
+
+```mermaid
+flowchart LR
+    A[User] --> B[Digital Dairy]
+    B --> C{Logic}
+    C --> D[(Data)]
+    C --> E[Output]
+    D --> C
+```
+
+
 Everything here is plain Markdown in git, so it's durable, searchable, works on any device,
 opens in any editor (and as an [Obsidian](https://obsidian.md) vault), and is backed up the
 moment I push to GitHub. That's how I *secure* what I learn: nothing rots, nothing is lost.
