@@ -6,12 +6,12 @@ from **computer science, programming, networking, and software development**.
 ## Architecture / How it Works
 
 ```mermaid
-flowchart LR
-    A[User] --> B[Digital Dairy]
-    B --> C{Logic}
-    C --> D[(Data)]
-    C --> E[Output]
-    D --> C
+flowchart TD
+    Content --> Scripts
+    Templates --> Scripts
+    Inbox --> Scripts
+    Scripts --> Build_Site
+    Build_Site --> GitHub_Pages_Workflow
 ```
 
 
